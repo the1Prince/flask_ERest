@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Template</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{url_for('static',filename='assets/css/login.css')}}">
+</head>
+<body>
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 login-section-wrapper">
+          <div class="brand-wrapper">
+            <img src="{{url_for('static',filename='assets/images/logo.svg')}}" alt="logo" class="logo">
+          </div>
+          <div class="login-wrapper my-auto">
+            <h1 class="login-title">Register</h1>
+
+            {% with messages = get_flashed_messages() %}
+        {% if messages %}
+              <div>
+                {{ messages[0] }}
+              </div>
+        {% endif %}
+        {% endwith %}
+           <form action="" method="POST">
+          {{ form.hidden_tag() }}
+              <div class="form-group" >
+              <p>
+               {{ form.name.label }}<br>
+            {{ form.name(size=32,class="form-control",placeholder="Enter email") }}<br>
+            {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+
+            <!--<label for=""> Email address</label><input class="form-control" placeholder="Enter email" type="email">-->
+          </div>
+
+
+
+          <div class="form-group">
+                  <p>
+               {{ form.username.label }}<br>
+            {{ form.username(size=32,class="form-control",placeholder="Enter username") }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+               <!-- <label for="">Confirm Password</label><input class="form-control" placeholder="Password" type="password">-->
+              </div>
+
+
+
+               <div class="form-group">
+                  <p>
+               {{ form.email.label }}<br>
+            {{ form.email(size=32,class="form-control",placeholder="Enter email") }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+                <!--<label for=""> Password</label><input class="form-control" placeholder="Password" type="password">-->
+              </div>
+
+
+
+
+
+            <div class="form-group">
+                  <p>
+               {{ form.telephone.label }}<br>
+            {{ form.telephone(size=32,class="form-control",placeholder="Enter telephone") }}<br>
+            {% for error in form.telephone.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+               <!-- <label for="">Confirm Password</label><input class="form-control" placeholder="Password" type="password">-->
+              </div>
+
+
+
+
+              <div class="form-group">
+                  <p>
+               {{ form.dob.label }}<br>
+            {{ form.dob(size=32,class="form-control",placeholder="Enter date of birth") }}<br>
+            {% for error in form.dob.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+                <!--<label for=""> Password</label><input class="form-control" placeholder="Password" type="password">-->
+              </div>
+
+
+
+
+
+
+             <div class="form-group">
+                  <p>
+               {{ form.gender.label }}<br>
+            {{ form.gender(size=32,class="form-control") }}<br>
+            {% for error in form.gender.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+               <!-- <label for="">Confirm Password</label><input class="form-control" placeholder="Password" type="password">-->
+              </div>
+
+
+
+
+            <div class="form-group">
+                  <p>
+               {{ form.address.label }}<br>
+            {{ form.address(size=32,class="form-control") }}<br>
+            {% for error in form.address.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+                <!--<label for=""> Password</label><input class="form-control" placeholder="Password" type="password">-->
+              </div>
+
+
+
+
+            <div class="form-group">
+                  <p>
+               {{ form.position.label }}<br>
+            {{ form.position(size=32,class="form-control",placeholder="Enter position") }}<br>
+            {% for error in form.position.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+               <!-- <label for="">Confirm Password</label><input class="form-control" placeholder="Password" type="password">-->
+              </div>
+
+
+
+
+
+
+
+            <div class="form-group">
+                  <p>
+               {{ form.password.label }}<br>
+            {{ form.password(size=32,class="form-control",placeholder="Enter password") }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+                <!--<label for=""> Password</label><input class="form-control" placeholder="Password" type="password">-->
+              </div>
+
+
+
+
+
+
+
+             <div class="form-group">
+                  <p>
+               {{ form.confirm.label }}<br>
+            {{ form.confirm(size=32,class="form-control",placeholder="Retype password") }}<br>
+            {% for error in form.confirm.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+                  </p>
+               <!-- <label for="">Confirm Password</label><input class="form-control" placeholder="Password" type="password">-->
+              </div>
+
+
+
+
+
+
+            <div class="form-check">
+               <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+            <!--<label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to terms and conditions</label>-->
+          </div>
+          <div class="form-buttons-w">
+              <p>{{ form.submit(class='btn btn-primary') }}</p>
+            <!--<button class="btn btn-primary" type="submit"> Submit</button>-->
+          </div>
+
+
+              <!--<input name="login" id="login" class="btn btn-block login-btn" type="button" value="Login">-->
+            </form>
+            <a href="#!" class="forgot-password-link">Forgot password?</a>
+            <p class="login-wrapper-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
+          </div>
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src="{{url_for('static',filename='assets/images/login.jpg')}}" alt="login image" class="login-img">
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
